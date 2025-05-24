@@ -1,0 +1,15 @@
+C003, Maha, maha_fares@hotmail.com, 3, 2, jerusalem, Single mother with infant
+C002, Khaled, khaled_jr@yahoo.com, 2, 2, westjerusalem, No gas at home for cooking
+C001, Nour, nour.alami@gmail.com, 6, 3, eastjerusalem, Needs diabetic-friendly food
+42fc6fa6-959a-4bfe-ace5-c7385e0a7e95, fashion, fashion@gmail.com, 6, 1, Jerusalem, 
+C014, Hassan, hsn_mohd@hotmail.com, 1, 1, jerusalem, No additional needs
+C013, Lina, lina_gh@gmail.com, 4, 3, eastjerusalem, Requires wheelchair access
+C012, Omar, omar789@yahoo.com, 2, 2, westjerusalem, Allergic to gluten
+C009, Samer, samer.alnajjar@hotmail.com, 1, 1, westjerusalem, Elderly and lives alone
+C011, Sara, sara.abu@outlook.com, 5, 3, eastjerusalem, Elderly parent needs assistance
+C008, Hiba, hiba.abdulrahman@gmail.com, 5, 3, eastjerusalem, Multiple children with disabilities
+C010, Ahmad, Ahmad123@gmail.com, 3, 1, jerusalem, Needs baby formula
+C007, Yousef, yous77@gmail.com, 2, 2, jerusalem, Student living alone
+C006, Rana, rana.saadeh@yahoo.com, 3, 1, eastjerusalem, Needs gluten-free items
+C005, Fadi, fadi.kanaan@gmail.com, 4, 2, jerusalem, Parent recovering from surgery
+C004, Tariq, tariq.hamdan@gmail.com, 5, 3, eastjerusalem, Needs transportation assistance

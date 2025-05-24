@@ -1,0 +1,7 @@
+1.customer duplication (hash Table) ✅
+2.main page ->Login system ->navigation system
+3.notification
+4.undo operator after mail notification
+5.email notification/replacement
+6.history database after sending the notification
+7.priority Queue
