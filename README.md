@@ -180,3 +180,121 @@ public class Main {
         manager.printAllCustomers();
     }
 }
+
+import javax.swing.*;
+import java.awt.*;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
+
+public class AddCustomer {
+    public static void main(String[] args) {
+        // Email validation regex pattern
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
+        Pattern pattern = Pattern.compile(emailRegex);
+
+        // Location and priority options
+        String[] locations = {"Jerusalem", "East Jerusalem", "West Jerusalem"};
+        JComboBox<String> locationBox = new JComboBox<>(locations);
+
+        String[] priorities = {"1-War", "2-Earthquakes", "3-Floods/Hurricanes", "4-Thunder Storm", "5-Fire"};
+        JComboBox<String> priorityBox = new JComboBox<>(priorities);
+
+        // Create the frame (window)
+        JFrame frame = new JFrame("Add new customer");
+        frame.setSize(400, 400);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setLayout(new GridLayout(8, 1));
+
+        // Input fields
+        JTextField nameField = new JTextField();
+        JTextField emailField = new JTextField();
+        JTextField familyField = new JTextField();
+        JTextField notesField = new JTextField();
+
+        // Field labels
+        frame.add(new JLabel("   Name:"));
+        frame.add(nameField);
+
+        frame.add(new JLabel("   e-mail:"));
+        frame.add(emailField);
+
+        frame.add(new JLabel("   Number of family members:"));
+        frame.add(familyField);
+
+        frame.add(new JLabel("   location:"));
+        frame.add(locationBox);
+
+        frame.add(new JLabel("   priority level:"));
+        frame.add(priorityBox);
+
+        frame.add(new JLabel("   Additional notes:"));
+        frame.add(notesField);
+
+        // Add button
+        JButton addButton = new JButton("Add");
+        frame.add(addButton);
+
+        // Status label
+        JLabel statusLabel = new JLabel("");
+        frame.add(statusLabel);
+
+        // Get customer manager instance
+        CustomerManager manager = CustomerManager.getInstance();
+
+        // When the "Add" button is pressed
+        addButton.addActionListener(e -> {
+            String name = nameField.getText().trim();
+            String email = emailField.getText().trim();
+            String family = familyField.getText().trim();
+            String location = (String) locationBox.getSelectedItem();
+            String levelStr = (String) priorityBox.getSelectedItem();
+            String levelChar = (levelStr.charAt(0) + "");
+            int emergencyLevel = Integer.parseInt(levelChar);
+            String notes = notesField.getText().trim();
+
+            // Validation
+            if (name.isEmpty() || email.isEmpty() || family.isEmpty()) {
+                statusLabel.setText("Name, email and family size are required.");
+                return;
+            }
+
+            // Email validation
+            if (!isValidEmail(email, pattern)) {
+                statusLabel.setText("Please enter a valid email address.");
+                return;
+            }
+
+            try {
+                int familySize = Integer.parseInt(family);
+                // Create new customer
+                Customer customer = new Customer(name, email, familySize, emergencyLevel, location, notes);
+
+                // Add customer using manager
+                if (manager.addCustomer(customer)) {
+                    statusLabel.setText("User added successfully! ID: " + customer.getId());
+
+                    // Clear fields
+                    nameField.setText("");
+                    emailField.setText("");
+                    familyField.setText("");
+                    notesField.setText("");
+                } else {
+                    statusLabel.setText("Error: Customer ID already exists.");
+                }
+            } catch (NumberFormatException ex) {
+                statusLabel.setText("Family size must be a number.");
+            }
+        });
+
+        // Display window
+        frame.setVisible(true);
+    }
+
+    // Email validation function
+    private static boolean isValidEmail(String email, Pattern pattern) {
+        Matcher matcher = pattern.matcher(email);
+        return matcher.matches();
+    }
+}
+
+
