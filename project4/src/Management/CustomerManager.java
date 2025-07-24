@@ -8,6 +8,7 @@ import java.util.Hashtable;
 import java.util.ArrayList;
 import java.util.List;
 
+
 /**
  * Management.CustomerManager class to handle all operations related to customers
  * Uses a Hashtable for in-memory operations and syncs with file storage
@@ -16,7 +17,7 @@ import java.util.List;
 public class CustomerManager {
     private static final String FILE_PATH = System.getProperty("user.dir") + File.separator + "DataBase" + File.separator + "customer.txt";
     private Hashtable<String, Customer> customerTable;
-    private List<CustomerUpdateListener> listeners;         //This is a list of objects that track any changes in customer data.//هذه قائمة من الكائنات التي تتابع أي تغييرات في بيانات العملاء
+    private List<CustomerUpdateListener> listeners;    //This is a list of objects that track any changes in customer data.//هذه قائمة من الكائنات التي تتابع أي تغييرات في بيانات العملاء
 
     // Singleton instance (1 component we use it for not making many versions)
     private static CustomerManager instance;

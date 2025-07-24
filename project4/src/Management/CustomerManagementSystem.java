@@ -1008,12 +1008,12 @@ public class CustomerManagementSystem implements CustomerManager.CustomerUpdateL
         tableTitle.setFont(new Font("Segoe UI", Font.BOLD, 24));
         tableTitle.setForeground(Color.WHITE);
 
-        JLabel tableCount = new JLabel("Total: " + manager.getCustomerCount() + " customers");
-        tableCount.setFont(new Font("Segoe UI", Font.PLAIN, 14));
-        tableCount.setForeground(Color.WHITE);
+        //JLabel tableCount = new JLabel("Total: " + manager.getCustomerCount() + " customers");
+        //tableCount.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+       // tableCount.setForeground(Color.WHITE);
 
         tableHeader.add(tableTitle, BorderLayout.WEST);
-        tableHeader.add(tableCount, BorderLayout.EAST);
+        //tableHeader.add(tableCount, BorderLayout.EAST);
 
         // Create beautiful table
         String[] columnNames = {"ID", "Name", "Email", "Family Size", "Emergency Level", "Location", "Notes"};
